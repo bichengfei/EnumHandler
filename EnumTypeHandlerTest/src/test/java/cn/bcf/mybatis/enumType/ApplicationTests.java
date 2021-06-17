@@ -17,6 +17,9 @@ public class ApplicationTests {
     @Autowired(required = false)
     UserService userService;
 
+    @Autowired
+    private ApplicationContext appContext;
+
     @Test
     public void test001() {
         List<UserEntity> list = userService.selectAll();
@@ -43,6 +46,12 @@ public class ApplicationTests {
         List<UserEntitySimple> list = userService.selectAllSimple();
         long endTime = System.nanoTime();
         System.out.println(endTime - startTime);
+    }
+
+    @Test
+    public void test005(){
+        SqlSessionFactory sqlSessionFactory = (SqlSessionFactory)appContext.getBean("sqlSessionFactory");
+        int a = 1;
     }
 
 }
