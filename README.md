@@ -1,9 +1,9 @@
 # EnumTypeHandler
-### 介绍
+## 介绍
 
 本项目是对 Mybatis 中 enum-type-handler 的增强。
 
-### 这个项目有什么用
+## 这个项目有什么用
 
 Mybatis 本质上是对 JDBC 的增强，那么 Mybatis 也将围绕着入参、出参、管理 SQL、执行 SQL这四个部分进行扩展，其中入参、出参都将对 Java 类型和 JDBC 类型进行映射转换，我们称之为类型处理器。Mybatis 定义了接口 TypeHandler，所有的类型处理器都继承自这个接口，通过重写这个接口中的四个方法，完成 Java 类型和 JDBC 类型的转换。
 
@@ -34,15 +34,15 @@ public enum SexEnum {
 
 本项目想要做的就是，在 ```pom.xml```中引入依赖，再在枚举类上引入注解，然后这个枚举类就可以使用到 Mybatis 的类型处理器的功能，方便开发。
 
-### 怎么用
+## 怎么用
 
 
 
-### 怎么工作的
+## 怎么工作的
 
 
 
-### License
+## License
 
 EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
