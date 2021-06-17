@@ -3,7 +3,7 @@
 
 本项目是对 Mybatis 中 enum-type-handler 的增强。
 
-## 这个项目有什么用
+## 有什么用
 
 Mybatis 本质上是对 JDBC 的增强，那么 Mybatis 也将围绕着入参、出参、管理 SQL、执行 SQL这四个部分进行扩展，其中入参、出参都将对 Java 类型和 JDBC 类型进行映射转换，我们称之为类型处理器。Mybatis 定义了接口 TypeHandler，所有的类型处理器都继承自这个接口，通过重写这个接口中的四个方法，完成 Java 类型和 JDBC 类型的转换。
 
