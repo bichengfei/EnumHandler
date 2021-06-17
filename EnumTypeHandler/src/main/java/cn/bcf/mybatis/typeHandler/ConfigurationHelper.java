@@ -1,8 +1,10 @@
 package cn.bcf.mybatis.typeHandler;
 
 import cn.bcf.mybatis.annotation.EnumHandler;
+import cn.bcf.mybatis.process.EnumHandlerProcess;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandlerRegistry;
+import org.apache.log4j.Logger;
 import org.atteo.classindex.ClassIndex;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ import java.util.List;
  */
 public class ConfigurationHelper {
 
+    private static Logger logger = Logger.getLogger(ConfigurationHelper.class);
+
     private static final Class HANDLER_ENUM_CLAZZ = EnumHandler.class;
 
     private static final Class HANDLER_CLAZZ = EnumKeyTypeHandler.class;
@@ -25,8 +29,9 @@ public class ConfigurationHelper {
      * @throws ClassNotFoundException
      */
     public static void loadEnumHandler(SqlSessionFactory factory) throws ClassNotFoundException {
+        logger.info("EnumTypeHandler 开始加载......");
         List<String> list = getJavaType();
-        System.out.println("list:" + list.toString());
+        logger.debug("list:" + list.toString());
         TypeHandlerRegistry typeHandlerRegistry = factory.getConfiguration().getTypeHandlerRegistry();
         for (String javaTypeClass : list) {
             typeHandlerRegistry.register(javaTypeClass, HANDLER_CLAZZ.getName());
