@@ -34,7 +34,7 @@ public class ConfigurationHelper {
         TypeHandlerRegistry typeHandlerRegistry = factory.getConfiguration().getTypeHandlerRegistry();
         for (String javaTypeClass : list) {
             typeHandlerRegistry.register(javaTypeClass, HANDLER_CLAZZ.getName());
-            logger.info("EnumTypeHandler--javaTypeClass:" + javaTypeClass + ", TypeHandler:" + HANDLER_CLAZZ.getName());
+            logger.info("EnumTypeHandler - javaTypeClass:" + javaTypeClass + ", TypeHandler:" + HANDLER_CLAZZ.getName());
         }
         logger.info("EnumTypeHandler - end......");
     }
@@ -47,7 +47,11 @@ public class ConfigurationHelper {
         List<String> list = new ArrayList<>();
         final Iterable<Class<?>> klasses = ClassIndex.getAnnotated(HANDLER_ENUM_CLAZZ);
         for (Class<?> clazz : klasses) {
-            list.add(clazz.getName());
+            if (clazz.isEnum()) {
+                list.add(clazz.getName());
+            } else {
+                logger.warn("EnumTypeHandler - Not Enum:" + clazz.getName());
+            }
         }
         return list;
     }

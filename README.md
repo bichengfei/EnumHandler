@@ -73,7 +73,7 @@ public enum SexEnum {
 
 ## 怎么工作的
 
-借用```spring boot ```的```spring.factories```，在```EnumTypeHandler```中获取的 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的 Class，手动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
+借用 Spring Boot 的 Spring.factories，在 EnumTypeHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的枚举类，手动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
 
 ## License
 
@@ -91,7 +91,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
    ![未加入 Mybatis 依赖](img/未加入Mybatis依赖.png)
 
-3. 为什么不打印日志？
+3. 为什么我添加了日志依赖和日志配置，依旧不打印日志？
 
    目前 EnumTypeHandler 只支持 log4j 
 
@@ -106,6 +106,10 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 6. 枚举类的变量名只能为 key 吗？可不可以是 code 或者其他任意字符串？任意类型可以吗？
 
    变量名可以不是 key，key 只是默认值，具体可以通过注解指定为任意字符串，例如：```@EnumHandler("code")```；任意类型不可以，当前版本只支持整形
+
+7. 在非枚举类上使用了注解 EnumHandler，会出现什么问题？
+
+   会打印出 warn 日志，对项目运行没有影响
 
    
 
