@@ -1,7 +1,7 @@
-# EnumTypeHandler
+# EnumHandler
 ## 介绍
 
-本项目是对 Mybatis 中 enum-type-handler 的增强
+本项目是对 Mybatis 中 enum-type-handler 的增强，零配置，老项目也可使用
 
 ## 有什么用
 
@@ -46,7 +46,7 @@ public enum SexEnum {
    </dependency>
    ```
 
-2. 枚举类上加上注解
+2. 枚举类上加注解
 
    ```java
    @EnumHandler
@@ -110,6 +110,10 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 7. 在非枚举类上使用了注解 EnumHandler，会出现什么问题？
 
    会打印出 warn 日志，对项目运行没有影响
+
+8. 只有 Spring Boot 项目才可以使用这个插件吗？对 Spring Boot 版本有什么要求？
+
+   是的。我在测试中使用的```2.5.1```没有问题，其他版本未测试
 
    
 

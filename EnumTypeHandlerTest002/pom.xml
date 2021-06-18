@@ -49,8 +49,8 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.bcf.mybatis</groupId>
-            <artifactId>enum-handler</artifactId>
+            <groupId>com.github.enumHandler</groupId>
+            <artifactId>mybatis-enum-handler</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

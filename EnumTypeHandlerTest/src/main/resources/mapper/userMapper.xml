@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.bcf.mybatis.enumType.mapper.UserMapper">
 
-    <select id="selectAll" resultType="cn.bcf.mybatis.enumType.entity.UserEntity">
+    <select id="selectAll" resultType="UserEntity">
         select * from users
     </select>
 
-    <select id="selectAllSimple" resultType="cn.bcf.mybatis.enumType.entity.UserEntitySimple">
+    <select id="selectAllSimple" resultType="UserEntitySimple">
         select * from users
     </select>
 
