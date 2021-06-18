@@ -81,13 +81,13 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 1. 是否会存在执行效率上的影响？
 
-   会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据查处的结果有多少枚举，就会有多少次反射。
+   会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据库查出的结果有多少枚举，就会有多少次反射。
 
 2. 当项目中未引入 Mybatis 依赖时，引入 EnumTypeHandler 会出现问题吗？
 
    不会，日志会打印警告信息，但对项目运行不会产生影响
 
-   ![未加入 Mybatis 依赖](img/未加入Mybatis 依赖.png)
+   ![未加入 Mybatis 依赖](img/未加入Mybatis依赖.png)
 
 3. 为什么不打印日志？
 
