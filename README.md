@@ -12,7 +12,7 @@ Mybatis 已经提供了很丰富的类型处理器，对于枚举类型，也提
 - EnumTypeHandler：枚举名/枚举 Name
 - EnumOrdinalTypeHandler：枚举顺序编号，从 1 开始
 
-但我们业务中大部分都是类似下面的枚举，这时候官方提供的处理器就不够用了。如果想使用 Mybatis 自动映射，我们就需要自定义枚举类型处理器，那么有没有一种方法，只通过添加一个注解，就能使用到 Mybatis 把数据库字段自动映射到我们的枚举类？
+但我们业务中大部分都是类似下面的枚举，我们需要在数据库中存字段 key，这时候官方提供的处理器就不够用了。如果想使用 Mybatis 自动映射，我们就需要自定义枚举类型处理器，那么有没有一种方法，只通过添加一个注解，就能使用到 Mybatis 把数据库字段自动映射到我们的枚举类？
 
 ```java
 public enum SexEnum {
@@ -48,22 +48,24 @@ public enum SexEnum {
 
 2. 枚举类上加上注解
 
-       @EnumHandler
-       public enum SexEnum {
-       
-           MAN(1, "男"),
-           WOMAN(2, "女")
-           ;
-       
-           public Integer key;
-           public String value;
-       
-           SexEnum(Integer key, String value) {
-               this.key = key;
-               this.value = value;
-           }
-       
+   ```java
+   @EnumHandler
+   public enum SexEnum {
+   
+       MAN(1, "男"),
+       WOMAN(2, "女")
+       ;
+   
+       public Integer key;
+       public String value;
+   
+       SexEnum(Integer key, String value) {
+           this.key = key;
+           this.value = value;
        }
+   
+   }
+   ```
 
 3. 验证插件是否成功加载
 
@@ -100,6 +102,10 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 5. 对数据库有什么要求？
 
    理论支持任意数据库
+
+6. 枚举类的变量名只能为 key 吗？可不可以是 code 或者其他任意字符串？任意类型可以吗？
+
+   变量名可以不是 key，key 只是默认值，具体可以通过注解指定为任意字符串，例如：```@EnumHandler("code")```；任意类型不可以，当前版本只支持整形
 
    
 
