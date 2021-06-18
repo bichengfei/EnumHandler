@@ -29,13 +29,14 @@ public class ConfigurationHelper {
      * @throws ClassNotFoundException
      */
     public static void loadEnumHandler(SqlSessionFactory factory) throws ClassNotFoundException {
-        logger.info("EnumTypeHandler 开始加载......");
+        logger.info("EnumTypeHandler - start......");
         List<String> list = getJavaType();
-        logger.debug("list:" + list.toString());
         TypeHandlerRegistry typeHandlerRegistry = factory.getConfiguration().getTypeHandlerRegistry();
         for (String javaTypeClass : list) {
             typeHandlerRegistry.register(javaTypeClass, HANDLER_CLAZZ.getName());
+            logger.info("EnumTypeHandler--javaTypeClass:" + javaTypeClass + ", TypeHandler:" + HANDLER_CLAZZ.getName());
         }
+        logger.info("EnumTypeHandler - end......");
     }
 
     /**

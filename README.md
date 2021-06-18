@@ -1,7 +1,7 @@
 # EnumTypeHandler
 ## 介绍
 
-本项目是对 Mybatis 中 enum-type-handler 的增强。
+本项目是对 Mybatis 中 enum-type-handler 的增强
 
 ## 有什么用
 
@@ -36,13 +36,71 @@ public enum SexEnum {
 
 ## 怎么用
 
+1. 引入依赖
 
+   ```java
+   <dependency>
+       <groupId>cn.bcf.mybatis</groupId>
+       <artifactId>enum-handler</artifactId>
+       <version>1.0-SNAPSHOT</version>
+   </dependency>
+   ```
+
+2. 枚举类上加上注解
+
+       @EnumHandler
+       public enum SexEnum {
+       
+           MAN(1, "男"),
+           WOMAN(2, "女")
+           ;
+       
+           public Integer key;
+           public String value;
+       
+           SexEnum(Integer key, String value) {
+               this.key = key;
+               this.value = value;
+           }
+       
+       }
+
+3. 验证插件是否成功加载
+
+   ![image-20210618103004915](img/运行成功日志.png)
 
 ## 怎么工作的
 
-
+借用```spring boot ```的```spring.factories```，在```EnumTypeHandler```中获取的 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的 Class，手动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
 
 ## License
 
 EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
+## FAQ
+
+1. 是否会存在执行效率上的影响？
+
+   会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据查处的结果有多少枚举，就会有多少次反射。
+
+2. 当项目中未引入 Mybatis 依赖时，引入 EnumTypeHandler 会出现问题吗？
+
+   不会，日志会打印警告信息，但对项目运行不会产生影响
+
+   ![未加入 Mybatis 依赖](img/未加入Mybatis 依赖.png)
+
+3. 为什么不打印日志？
+
+   目前 EnumTypeHandler 只支持 log4j 
+
+4. 对 Mybatis 版本有什么要求？
+
+   TODO...
+
+5. 对数据库有什么要求？
+
+   理论支持任意数据库
+
+   
+
+   
