@@ -10,11 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @Description：TODO
- * @Author：bichengfei
- * @Date：2021/5/27 8:04 下午
- */
 public class EnumKeyTypeHandler<E extends Enum> extends BaseTypeHandler<E> {
 
     private final Class<E> type;

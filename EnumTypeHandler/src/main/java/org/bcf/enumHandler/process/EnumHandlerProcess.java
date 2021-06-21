@@ -9,11 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
-/**
- * @Description：TODO
- * @Author：bichengfei
- * @Date：2021/6/11 5:13 下午
- */
 @Configuration
 public class EnumHandlerProcess {
 
