@@ -11,8 +11,7 @@ import org.bcf.enumHandler.annotation.EnumHandler;
 public enum NationEnum {
 
     HAN(1, "汉族"),
-    HUI(2, "回族")
-    ;
+    HUI(2, "回族");
 
     private Integer key;
     private String value;
