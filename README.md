@@ -5,14 +5,14 @@
 
 ## 有什么用
 
-Mybatis 本质上是对 JDBC 的增强，那么 Mybatis 也将围绕着入参、出参、管理 SQL、执行 SQL这四个部分进行扩展，其中入参、出参都将对 Java 类型和 JDBC 类型进行映射转换，我们称之为类型处理器。Mybatis 定义了接口 TypeHandler，所有的类型处理器都继承自这个接口，通过重写这个接口中的四个方法，完成 Java 类型和 JDBC 类型的转换。
+使用 Mybatis 时，对于 Integer 类型字段，不管是 parameterType 或是 resultType，Mybatis 都能优雅的处理。原理是 Mybatis 实现了一种 Java 数据类型和 Jdbc 数据类型之间的转换规则。通过实现接口 TypeHandler，任何数据类型都可以和 Mybatis 优雅转换。
 
-Mybatis 已经提供了很丰富的类型处理器，对于枚举类型，也提供了两种处理器：
+Mybatis 已经实现了很丰富的类型处理器，对于枚举类型，也提供了两种处理器：
 
 - EnumTypeHandler：枚举名/枚举 Name
 - EnumOrdinalTypeHandler：枚举顺序编号，从 1 开始
 
-但我们业务中大部分都是类似下面的枚举，我们需要在数据库中存字段 key，这时候官方提供的处理器就不够用了。如果想使用 Mybatis 自动映射，我们就需要自定义枚举类型处理器，那么有没有一种方法，只通过添加一个注解，就能使用到 Mybatis 把数据库字段自动映射到我们的枚举类？
+但我们业务中大部分都是类似下面的枚举，我们需要在数据库中存枚举类中的字段 key，这时候官方提供的处理器就不够用了。
 
 ```java
 public enum SexEnum {
@@ -32,7 +32,7 @@ public enum SexEnum {
 }
 ```
 
-本项目想要做的就是，在 ```pom.xml```中引入依赖，再在枚举类上引入注解，然后这个枚举类就可以使用到 Mybatis 的类型处理器的功能，方便开发。
+本项目想要做的就是，在 pom.xml 中引入依赖，再在枚举类上加上注解，然后这个枚举类就可以使用到 Mybatis 的类型处理器的功能，方便开发。
 
 ## 怎么用
 
@@ -40,9 +40,9 @@ public enum SexEnum {
 
    ```java
    <dependency>
-       <groupId>cn.bcf.mybatis</groupId>
-       <artifactId>enum-handler</artifactId>
-       <version>1.0-SNAPSHOT</version>
+   		<groupId>io.github.bichengfei</groupId>
+       <artifactId>mybatis-enum-handler</artifactId>
+       <version>1.0</version>
    </dependency>
    ```
 
@@ -67,13 +67,13 @@ public enum SexEnum {
    }
    ```
 
-3. 验证插件是否成功加载
+3. 查看插件是否成功加载
 
    ![image-20210618103004915](img/运行成功日志.png)
 
 ## 怎么工作的
 
-借用 Spring Boot 的 Spring.factories，在 EnumTypeHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的枚举类，手动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
+借用 Spring Boot 的 Spring.factories，在 EnumHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的枚举类，自动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
 
 ## License
 
@@ -83,7 +83,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 1. 是否会存在执行效率上的影响？
 
-   会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据库查出的结果有多少枚举，就会有多少次反射。
+   会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据库查出的结果有多少枚举，就会有多少次反射。不过从测试结果看来，性能影响微乎其微。
 
 2. 当项目中未引入 Mybatis 依赖时，引入 EnumTypeHandler 会出现问题吗？
 

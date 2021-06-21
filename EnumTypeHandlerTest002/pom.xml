@@ -49,9 +49,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.enumHandler</groupId>
+            <groupId>io.github.bichengfei</groupId>
             <artifactId>mybatis-enum-handler</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
 
     </dependencies>
