@@ -1,0 +1,3 @@
+org.bcf.enumHandler.enumType.entity.UserEntity
+org.bcf.enumHandler.enumType.enums.NationEnum
+org.bcf.enumHandler.enumType.enums.SexEnum

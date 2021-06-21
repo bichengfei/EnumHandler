@@ -12,7 +12,7 @@ Mybatis 已经实现了很丰富的类型处理器，对于枚举类型，也提
 - EnumTypeHandler：枚举名/枚举 Name
 - EnumOrdinalTypeHandler：枚举顺序编号，从 1 开始
 
-但我们业务中大部分都是类似下面的枚举，我们需要在数据库中存枚举类中的字段 key，这时候官方提供的处理器就不够用了。我们可以通过实现接口 TypeHandler，自定义枚举类型处理器，这样就能把 key 存放到数据库中。
+但我们业务中大部分都是类似下面的枚举，我们需要在数据库中存枚举类中的字段 key，这时候官方提供的处理器就不够用了。不过我们可以通过实现接口 TypeHandler，自定义枚举类型处理器，这样就能把 key 存放到数据库中。
 
 ```java
 public enum SexEnum {
@@ -32,8 +32,7 @@ public enum SexEnum {
 }
 ```
 
-自定义处理器的确是一个可行的方法，但还是太过麻烦，那么 Mybatis 有没有提供更方便快捷的方法？
-好像没有，至少我没有找到。本项目想要做的就是，在 pom.xml 中引入依赖，再在枚举类上加上注解，然后这个枚举类就可以使用到 Mybatis 的类型处理器的功能，方便开发。
+上述方法可行，但太过麻烦。本项目想要做的就是，在 pom.xml 中引入依赖，再在枚举类上加上注解，然后这个枚举类就可以使用到 Mybatis 的类型处理器的功能，方便开发。
 
 ## 怎么用
 
@@ -50,6 +49,8 @@ public enum SexEnum {
 2. 枚举类上加注解
 
    ```java
+   import org.bcf.enumHandler.annotation.EnumHandler;
+   
    @EnumHandler
    public enum SexEnum {
    
@@ -71,6 +72,8 @@ public enum SexEnum {
 3. 查看插件是否成功加载
 
    ![image-20210618103004915](img/运行成功日志.png)
+
+
 
 ## 怎么工作的
 
@@ -115,6 +118,12 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 8. 只有 Spring Boot 项目才可以使用这个插件吗？对 Spring Boot 版本有什么要求？
 
    是的。我在测试中使用的```2.5.1```没有问题，其他版本未测试
+
+9. 不想每个枚举类都加上 ```@EnumHandler```，有没有一次设置，整个项目覆盖的方法？
+
+   目前未提供这种配置，后续版本可能加上
+
+   
 
    
 

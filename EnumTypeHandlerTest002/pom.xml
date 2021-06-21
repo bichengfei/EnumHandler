@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>cn.bcf.mybatis</groupId>
-    <artifactId>enum-handler-test002</artifactId>
+    <groupId>io.github.bichengfei</groupId>
+    <artifactId>mybatis-enum-handler-test002</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
