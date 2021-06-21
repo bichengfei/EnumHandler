@@ -24,7 +24,7 @@ public class EnumHandlerProcess {
             logger.warn("未获取到 sqlSessionFactory 对象，EnumTypeHandler 插件未成功加载.");
             return;
         }
-        ConfigurationHelper.loadEnumHandler((SqlSessionFactory)sqlSessionFactory);
+        ConfigurationHelper.loadEnumHandler((SqlSessionFactory) sqlSessionFactory);
     }
 
 }

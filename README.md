@@ -1,11 +1,13 @@
 # EnumHandler
+
 ## 介绍
 
 本项目是对 Mybatis 中 enum-type-handler 的增强，零配置，老项目也可使用
 
 ## 有什么用
 
-使用 Mybatis 时，对于 Integer 类型字段，不管是 parameterType 或是 resultType，Mybatis 都能优雅的处理。原理是 Mybatis 针对 Integer 实现了 Java 数据类型和 Jdbc 数据类型之间的转换规则，我们称之为 Integer 类型处理器。
+使用 Mybatis 时，对于 Integer 类型字段，不管是 parameterType 或是 resultType，Mybatis 都能优雅的处理。原理是 Mybatis 针对 Integer 实现了 Java 数据类型和 Jdbc
+数据类型之间的转换规则，我们称之为 Integer 类型处理器。
 
 Mybatis 已经实现了很丰富的类型处理器，对于枚举类型，也提供了两种处理器：
 
@@ -73,11 +75,10 @@ public enum SexEnum {
 
    ![image-20210618103004915](img/运行成功日志.png)
 
-
-
 ## 怎么工作的
 
-借用 Spring Boot 的 Spring.factories，在 EnumHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler 的枚举类，自动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
+借用 Spring Boot 的 Spring.factories，在 EnumHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler
+的枚举类，自动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
 
 ## License
 
@@ -97,7 +98,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 3. 为什么我添加了日志依赖和日志配置，依旧不打印日志？
 
-   目前 EnumTypeHandler 只支持 log4j 
+   目前 EnumTypeHandler 只支持 log4j
 
 4. 对 Mybatis 版本有什么要求？
 
