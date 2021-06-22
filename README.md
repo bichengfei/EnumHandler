@@ -75,6 +75,8 @@ public enum SexEnum {
 3. 查看插件是否成功加载
 
    ![image-20210618103004915](img/运行成功日志.png)
+4. Github 项目目录下有测试用例[EnumTypeHandlerTest001](https://github.com/bichengfei/EnumHandler/tree/main/EnumTypeHandlerTest001)，采用 H2 内存数据库，Pull 下来后即可运行
+
 
 ## 原理
 
