@@ -6,8 +6,8 @@
 
 ## 有什么用
 
-使用 Mybatis 时，对于 Integer 类型字段，不管是 parameterType 或是 resultType，Mybatis 都能优雅的处理。原理是 Mybatis 针对 Integer 实现了 Java 数据类型和 Jdbc
-数据类型之间的转换规则，我们称之为 Integer 类型处理器。
+使用 Mybatis 时，对于 Integer 类型字段，不管是作为 parameterType 或是 resultType，Mybatis 都能优雅的处理。原理是 Mybatis 针对 Integer 实现了 Java 数据类型和 Jdbc
+数据类型之间的转换规则，也就是 IntegerTypeHandler，也可称之为 Integer 类型处理器。
 
 Mybatis 已经实现了很丰富的类型处理器，对于枚举类型，也提供了两种处理器：
 
