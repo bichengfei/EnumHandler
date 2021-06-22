@@ -2,7 +2,7 @@
 
 ## 介绍
 
-本项目是对 Mybatis 中 enum-type-handler 的增强，零配置，老项目也可使用
+本项目是对 Mybatis 中枚举类型处理器的增强，新旧项目均可使用
 
 ## 有什么用
 
@@ -38,7 +38,7 @@ public enum SexEnum {
 
 ## 怎么用
 
-1. 引入依赖
+1. 引入依赖(已发布到公共 maven 仓库)
 
    ```java
    <dependency>
