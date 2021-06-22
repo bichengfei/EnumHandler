@@ -75,7 +75,7 @@ public enum SexEnum {
 
    ![image-20210618103004915](img/运行成功日志.png)
 
-## 怎么工作的
+## 原理
 
 借用 Spring Boot 的 Spring.factories，在 EnumHandler 中获取到 Mybatis 的 SqlSessionFactory 对象，然后获取到所有用到注解 EnumHandler
 的枚举类，自动把这些枚举类和指定的 TypeHandler 注入到 Mybatis 的类型处理器中。
@@ -90,7 +90,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
    会存在一些。当把数据库字段转为枚举的时候，会对枚举类进行反射处理，从数据库查出的结果有多少枚举，就会有多少次反射。不过从测试结果看来，性能影响微乎其微。
 
-2. 当项目中未引入 Mybatis 依赖时，引入 EnumTypeHandler 会出现问题吗？
+2. 当项目中未引入 Mybatis 依赖时，引入 EnumHandler 会出现问题吗？
 
    不会，日志会打印警告信息，但对项目运行不会产生影响
 
@@ -98,7 +98,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 3. 为什么我添加了日志依赖和日志配置，依旧不打印日志？
 
-   目前 EnumTypeHandler 只支持 log4j
+   目前 EnumHandler 只支持 log4j
 
 4. 对 Mybatis 版本有什么要求？
 
