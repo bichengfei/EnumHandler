@@ -42,7 +42,7 @@ public enum SexEnum {
 
    ```java
    <dependency>
-   		<groupId>io.github.bichengfei</groupId>
+       <groupId>io.github.bichengfei</groupId>
        <artifactId>mybatis-enum-handler</artifactId>
        <version>1.0</version>
    </dependency>
