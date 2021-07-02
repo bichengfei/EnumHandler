@@ -2,7 +2,11 @@
 EnumTypeHandler/target/
 EnumTypeHandlerTest/target/
 EnumTypeHandlerTest002/target/
-*.iml
 mvnw
 mvnw.cmd
 .mvn/
+*.log
+*/target/
+*.iml
+*/*.iml
+./EnumTypeHandler/enum-handler.iml
