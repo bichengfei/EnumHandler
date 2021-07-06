@@ -11,7 +11,7 @@
 
     <groupId>io.github.bichengfei</groupId>
     <artifactId>mybatis-enum-handler</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>mybatis-enum-handler</name>
     <description>mybatis-enum-handler</description>
 
@@ -26,6 +26,7 @@
         <developer>
             <name>BiChengfei</name>
             <email>1428976670@qq.com</email>
+            <url>https://github.com/bichengfei</url>
         </developer>
     </developers>
 

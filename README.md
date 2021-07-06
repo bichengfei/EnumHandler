@@ -101,7 +101,9 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 3. 为什么我添加了日志依赖和日志配置，依旧不打印日志？
 
-   目前 EnumHandler 只支持 log4j
+   ~~目前 EnumHandler 只支持 log4j~~
+
+   1.1 版本日志体系改用 slf4j + log4j，可正常匹配所有 log
 
 4. 对 Mybatis 版本有什么要求？
 
@@ -126,9 +128,3 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 9. 不想每个枚举类都加上 ```@EnumHandler```，有没有一次设置，整个项目覆盖的方法？
 
    目前未提供这种配置，后续版本可能加上
-
-   
-
-   
-
-   
