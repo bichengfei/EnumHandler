@@ -45,7 +45,7 @@ public enum SexEnum {
    <dependency>
        <groupId>io.github.bichengfei</groupId>
        <artifactId>mybatis-enum-handler</artifactId>
-       <version>1.0</version>
+       <version>xxx.xxx</version>
    </dependency>
    ```
 
