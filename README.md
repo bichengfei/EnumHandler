@@ -102,6 +102,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 3. 为什么我添加了日志依赖和日志配置，依旧不打印日志？
 
    ~~目前 EnumHandler 只支持 log4j~~
+   
    ~~1.1 版本日志体系改用 slf4j + log4j，可正常匹配所有 log~~
    
    1.2 版本改为使用 slf4j
