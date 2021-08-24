@@ -18,7 +18,4 @@ public interface UserMapper {
 
     List<UserEntitySimple> selectAllSimple();
 
-    boolean insert(UserEntity user);
-
-    UserEntity selectByUsername(String username);
 }

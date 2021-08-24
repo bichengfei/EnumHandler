@@ -27,11 +27,4 @@ public class UserService {
         return userMapper.selectAllSimple();
     }
 
-    public boolean insert(UserEntity user) {
-        return userMapper.insert(user);
-    }
-
-    public UserEntity selectByUsername(String username) {
-        return userMapper.selectByUsername(username);
-    }
 }

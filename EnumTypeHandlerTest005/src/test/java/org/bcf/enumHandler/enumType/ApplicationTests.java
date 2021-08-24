@@ -2,21 +2,22 @@ package org.bcf.enumHandler.enumType;
 
 import org.bcf.enumHandler.enumType.entity.UserEntity;
 import org.bcf.enumHandler.enumType.entity.UserEntitySimple;
-import org.bcf.enumHandler.enumType.enums.NationEnum;
-import org.bcf.enumHandler.enumType.enums.SexEnum;
 import org.bcf.enumHandler.enumType.service.UserService;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.context.support.GenericWebApplicationContext;
 
 import java.util.List;
 
 @SpringBootTest
 public class ApplicationTests {
+
+    private final static Logger logger = LoggerFactory.getLogger(ApplicationTests.class);
+
 
     @Autowired(required = false)
     UserService userService;
@@ -25,16 +26,9 @@ public class ApplicationTests {
     private ApplicationContext appContext;
 
     @Test
-    public void test007() {
-        int a = appContext.getBeanDefinitionCount();
-        int c = ((GenericWebApplicationContext) appContext).getBeanFactory().getSingletonCount();
-        int d = ((GenericWebApplicationContext) appContext).getBeanFactory().getBeanPostProcessorCount();
-        int b = 1;
-    }
-
-    @Test
     public void test001() {
         List<UserEntity> list = userService.selectAll();
+        logger.info("list = " + list);
         list.stream().forEach(System.out::println);
     }
 
@@ -64,18 +58,6 @@ public class ApplicationTests {
     public void test005(){
         SqlSessionFactory sqlSessionFactory = (SqlSessionFactory)appContext.getBean("sqlSessionFactory");
         int a = 1;
-    }
-
-    @Test
-    public void test006() {
-        UserEntity user = new UserEntity();
-        user.setUsername("hahahah");
-        user.setNation(NationEnum.HAN);
-        user.setSex(SexEnum.MAN);
-        boolean bool = userService.insert(user);
-        System.out.println(bool);
-        UserEntity temp = userService.selectByUsername("hahahah");
-        System.out.println(temp);
     }
 
 }

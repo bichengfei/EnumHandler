@@ -12,11 +12,4 @@
         select * from users
     </select>
 
-    <insert id="insert">
-        insert into users(username, nation, sex) values ( #{username}, #{nation, }, #{sex} )
-    </insert>
-
-    <select id="selectByUsername" parameterType="string" resultType="org.bcf.enumHandler.enumType.entity.UserEntity">
-        select * from users where username = #{username}
-    </select>
 </mapper>
