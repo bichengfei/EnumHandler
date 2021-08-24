@@ -3,15 +3,16 @@ package org.bcf.enumHandler.typeHandler;
 import org.bcf.enumHandler.annotation.EnumHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.apache.log4j.Logger;
 import org.atteo.classindex.ClassIndex;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigurationHelper {
 
-    private static Logger logger = Logger.getLogger(ConfigurationHelper.class);
+    private static Logger logger = LoggerFactory.getLogger(ConfigurationHelper.class);
 
     private static final Class HANDLER_ENUM_CLAZZ = EnumHandler.class;
 

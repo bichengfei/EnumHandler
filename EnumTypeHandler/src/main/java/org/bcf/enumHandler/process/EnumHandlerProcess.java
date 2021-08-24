@@ -2,7 +2,8 @@ package org.bcf.enumHandler.process;
 
 import org.bcf.enumHandler.typeHandler.ConfigurationHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,7 @@ import javax.annotation.PostConstruct;
 @Configuration
 public class EnumHandlerProcess {
 
-    private static Logger logger = Logger.getLogger(EnumHandlerProcess.class);
+    private static Logger logger = LoggerFactory.getLogger(EnumHandlerProcess.class);
 
     @Autowired(required = false)
     @Qualifier("sqlSessionFactory")
