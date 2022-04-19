@@ -28,7 +28,7 @@ public class EnumKeyTypeHandler<E extends Enum> extends BaseTypeHandler<E> {
         try {
             Field field = type.getDeclaredField(keyField);
             field.setAccessible(true);
-            ps.setInt(i, (int) field.get(parameter));
+            ps.setObject(i,field.get(parameter));
         } catch (NoSuchFieldException e) {
             throw new RuntimeException("EnumKeyTypeHandler...未正确指定映射字段");
         } catch (IllegalAccessException e) {
