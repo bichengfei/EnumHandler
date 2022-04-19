@@ -117,7 +117,7 @@ EnumTypeHandler is available under [Apache License 2.0](https://www.apache.org/l
 
 6. 枚举类的变量名只能为 key 吗？可不可以是 code 或者其他任意字符串？任意类型可以吗？
 
-   变量名可以不是 key，key 只是默认值，具体可以通过注解指定为任意字符串，例如：```@EnumHandler("code")```；任意类型不可以，当前版本只支持整形
+   变量名可以不是 key，key 只是默认值，具体可以通过注解指定为任意字符串，例如：```@EnumHandler("code")```；~~任意类型不可以，当前版本只支持整形~~,已经支持任意类型
 
 7. 在非枚举类上使用了注解 EnumHandler，会出现什么问题？
 
